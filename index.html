@@ -1,0 +1,229 @@
+<!-- File: /index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>All About Me.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#ffffff;
+    --text:#111;
+    --accent:#888;
+    --nav-border:#eee;
+}
+
+body[data-theme="dark"]{
+    --bg:#111;
+    --text:#f5f5f5;
+    --accent:#aaa;
+    --nav-border:#333;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    transition:0.3s;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:var(--bg);
+    border-bottom:1px solid var(--nav-border);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+    padding:15px;
+    gap:40px;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--text);
+    font-weight:500;
+}
+
+nav button{
+    margin-left:20px;
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.hero{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    min-height:100vh;
+    justify-content:center;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:var(--accent);
+}
+
+.profile{
+    width:180px;
+    border-radius:50%;
+    margin-bottom:30px;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-15px); }
+    100%{ transform:translateY(0px); }
+}
+
+section{
+    padding:120px 0;
+}
+
+h2{
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skill{
+    border:1px solid var(--nav-border);
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+.contact a{
+    color:var(--text);
+    text-decoration:none;
+    border-bottom:1px solid var(--accent);
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:var(--accent);
+}
+
+@media (max-width:700px){
+.hero h1{
+    font-size:2.2rem;
+}
+.profile{
+    width:140px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<button id="themeToggle">🌙</button>
+</nav>
+
+<div class="container hero">
+<img class="profile" src="rr.jpeg" alt="Profile">
+<h1>Rehan.</h1>
+<p>Tech Purist • Creative Thinker • Designer</p>
+</div>
+
+<div class="container">
+
+<section id="about">
+<h2>About Me.</h2>
+<p>
+Navigating the complexities of Organic Chemistry and Physics by day; exploring hypercars and high-end hardware by night. A 1st Dan Black Belt in Qatar with a drive for cinematic aesthetics, sim-racing, and the precision of a tennis court. Always pursuing the "top-spec" in both discipline and tech.
+</p>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="skills">
+<div class="skill">Fine Arts</div>
+<div class="skill">Strategic Thinking</div>
+<div class="skill">High-End Tech Proficiency</div>
+<div class="skill">UI Design</div>
+<div class="skill">Performance Benchmarking</div>
+<div class="skill">Experienced Leader</div>
+<div class="skill">Proficiency in Martial Arts</div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p class="contact">
+Email: <a href="mailto:you@email.com">rehanpa.2109@gmail.com</a>
+</p>
+</section>
+
+</div>
+
+<footer>
+© 2026 Rehan Ashraf
+</footer>
+
+<script>
+const toggle = document.getElementById("themeToggle");
+const body = document.body;
+
+const savedTheme = localStorage.getItem("theme");
+if(savedTheme){
+    body.setAttribute("data-theme", savedTheme);
+}
+
+toggle.onclick = () => {
+    const current = body.getAttribute("data-theme");
+    const newTheme = current === "dark" ? "light" : "dark";
+    body.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+};
+</script>
+
+</body>
+</html>
